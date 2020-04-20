@@ -5,30 +5,41 @@ from sklearn.svm import LinearSVR
 from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import SimpleImputer, IterativeImputer
 
+
 def impute_data(input_df,  impute_strategy = 'SimpleImputer'):
-    if impute_strategy == 'SimpleImputer_pid':
-        imp = SimpleImputer(missing_values=np.nan, strategy='mean')
-        df = imp.fit_transform(input_df, input_df)
+
+    if impute_strategy == 'SimpleImputer':
+        imp = SimpleImputer(missing_values=np.nan, strategy='median')
+        df = pd.DataFrame(imp.fit_transform(input_df, input_df), columns=list(input_df.columns.values))
 
     if impute_strategy == 'SimpleImputer_pid':
-        imp = SimpleImputer(missing_values=np.nan, strategy='mean')
-        df = imp.fit(input_df)
-        for pid in df_train_features['pid'].unique():
+        imp = SimpleImputer(missing_values=np.nan, strategy='median')
+        df = pd.DataFrame(imp.fit_transform(input_df, input_df), columns=list(input_df.columns.values))
+
+        imputed_df = pd.DataFrame(columns=list(input_df.columns.values))
+
+        for counter, pid in enumerate(df_train_features['pid'].unique()):
+            print(counter, '  pid:', pid)
             pid_df = input_df[input_df['pid'] == pid]
-            for column in list(pid_df.columns.values):
-                col_df = pid_df[pid_df[column]
-                if 12 - input_df.isna().sum() => 4:
-                    imp_pid = SimpleImputer(missing_values=np.nan, strategy='mean')
+
+            imputed_pid_df = pid_df.loc[:,['pid', 'Time', 'Age']]
+            for column in list(pid_df.columns.values)[3:]:
+                col_df = pid_df[[column]]
+                if 12 - col_df.isna().sum().values >= 3:
+                    imp_pid = SimpleImputer(missing_values=np.nan, strategy='median')
                     col_df = imp_pid.fit_transform(col_df, col_df)
                 else:
-                    col_df = imp.transform(col_df)
+                    pid_helper_df = df[df['pid'] == pid]
+                    col_df = pid_helper_df[[column]]
 
+                imputed_pid_df[column] = col_df
 
-            imp = SimpleImputer(missing_values=np.nan, strategy='mean')
-            df = imp.fit_transform(input_df, input_df)
+            imputed_df = pd.concat([imputed_df, imputed_pid_df], ignore_index=True)
+            del imputed_pid_df
 
+        df = imputed_df
 
-    return pd.DataFrame(df, columns=list(input_df.columns.values))
+    return df
 
 def build_stats(input_df):
     train_features_stats = pd.DataFrame()
