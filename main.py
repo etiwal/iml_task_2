@@ -12,6 +12,16 @@ def impute_data(input_df, impute_strategy = 'SimpleImputer'):
 
     return pd.DataFrame(df, columns=list(input_df.columns.values))
 
+def build_stats(input_df):
+    train_features_stats = pd.DataFrame()
+    train_features_stats['nan_count'] = input_df.isna().sum()
+    train_features_stats['mean'] = input_df.mean()
+    train_features_stats['std'] = input_df.std()
+    train_features_stats['median'] = input_df.median()
+    train_features_stats = train_features_stats.T
+    train_features_stats.to_csv('train_features_stats.csv', sep=',', float_format='%.3f', encoding='utf-8')
+
+
 df_train_features = pd.read_csv('train_features.csv')
 #df_train_labels = pd.read_csv('train_labels.csv')
 #df_test_features = pd.read_csv('test_features.csv')
@@ -19,12 +29,7 @@ df_train_features = pd.read_csv('train_features.csv')
 pids_train, pids_validate = df_train_features['pid'].unique(), 0
 
 # build statistics
-# train_features_stats = pd.DataFrame()
-# train_features_stats['nan_count'] = df_train_features.isna().sum()
-# train_features_stats['mean'] = df_train_features.mean()
-# train_features_stats['std'] = df_train_features.std()
-# train_features_stats = train_features_stats.T
-# train_features_stats.to_csv('train_features_stats.csv', sep=',', float_format='%.3f', encoding='utf-8', index=False)
+build_stats(df_train_features)
 
 
 
