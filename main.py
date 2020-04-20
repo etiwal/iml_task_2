@@ -5,10 +5,28 @@ from sklearn.svm import LinearSVR
 from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import SimpleImputer, IterativeImputer
 
-def impute_data(input_df, impute_strategy = 'SimpleImputer'):
-    if impute_strategy == 'SimpleImputer':
+def impute_data(input_df,  impute_strategy = 'SimpleImputer'):
+    if impute_strategy == 'SimpleImputer_pid':
         imp = SimpleImputer(missing_values=np.nan, strategy='mean')
         df = imp.fit_transform(input_df, input_df)
+
+    if impute_strategy == 'SimpleImputer_pid':
+        imp = SimpleImputer(missing_values=np.nan, strategy='mean')
+        df = imp.fit(input_df)
+        for pid in df_train_features['pid'].unique():
+            pid_df = input_df[input_df['pid'] == pid]
+            for column in list(pid_df.columns.values):
+                col_df = pid_df[pid_df[column]
+                if 12 - input_df.isna().sum() => 4:
+                    imp_pid = SimpleImputer(missing_values=np.nan, strategy='mean')
+                    col_df = imp_pid.fit_transform(col_df, col_df)
+                else:
+                    col_df = imp.transform(col_df)
+
+
+            imp = SimpleImputer(missing_values=np.nan, strategy='mean')
+            df = imp.fit_transform(input_df, input_df)
+
 
     return pd.DataFrame(df, columns=list(input_df.columns.values))
 
@@ -29,11 +47,11 @@ df_train_features = pd.read_csv('train_features.csv')
 pids_train, pids_validate = df_train_features['pid'].unique(), 0
 
 # build statistics
-build_stats(df_train_features)
+# build_stats(df_train_features)
 
 
 
-train_features_imputed = impute_data(df_train_features)
+train_features_imputed = impute_data(df_train_features, impute_strategy='SimpleImputer_pid')
 print(train_features_imputed)
 train_features_imputed.to_csv('train_features_imputed.csv', sep=',', float_format='%.3f', encoding='utf-8', index=False)
 
