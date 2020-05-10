@@ -21,11 +21,11 @@ from utils import healthDataset
 np.set_printoptions(suppress=True)
 
 do_imputation = False
-use_imputed_data = True
+use_imputed_data = False
 train_model_densenet = True
 
-df_train_features = pd.read_csv('train_features.csv')
-pids_train, pids_validate = list(df_train_features['pid'].unique())[0:18000], list(df_train_features['pid'].unique())[18000:]
+df_train_features = pd.read_csv('train_features.csv').fillna(0)
+pids_train, pids_validate = list(df_train_features['pid'].unique())[0:3000], list(df_train_features['pid'].unique())[18000:]
 
 df_train_labels = pd.read_csv('train_labels.csv')
 #df_test_features = pd.read_csv('test_features.csv')
