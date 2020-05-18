@@ -6,7 +6,14 @@ import sklearn.metrics as metrics
 def dataset_imputer(df_original, method, pid_list, fillna=True):
     
     # get column names for imputed df
-    df_imputed = pd.DataFrame(columns=df_original.columns)
+    column_list = list(df_original.columns)
+    count_column_list = [x + '_count' for x in column_list]
+    if not method == 'mean_and_count':
+        columns = column_list
+    else:
+        columns = column_list + count_column_list[3:]
+        
+    df_imputed = pd.DataFrame(columns=columns)
     
     use_age = False
     if 'Age' in df_original.columns:
@@ -21,9 +28,21 @@ def dataset_imputer(df_original, method, pid_list, fillna=True):
 
             if method == 'mean':
                 data = pid_df.mean()
+                
             elif method == 'count':
-                data = pid_df.isna().sum()
-                data = -1*pid_df + 12
+                data = 12 - pid_df.isna().sum()
+                
+            elif method == 'mean_and_count':
+                data_mean = pid_df.mean()
+                data_count = 12 - pid_df.isna().sum()
+                data_count.index = count_column_list
+                data_count = data_count.drop(['pid_count', 'Age_count', 'Time_count'], axis=0)
+                
+                data = pd.concat([data_mean, data_count])
+                
+                del data_mean
+                del data_count
+                
             else:
                 print('the method', method, 'does not exist!')
 
@@ -41,10 +60,10 @@ def dataset_imputer(df_original, method, pid_list, fillna=True):
             del data
             
     else:
-        df_imputed = df_original
+        df_imputed = df_original[df_original['pid'].isin(pid_list)]
         
     if fillna:
-        df_imputed.fillna(0)
+        df_imputed = df_imputed.fillna(0)
         
     df_imputed = df_imputed.sort_values(['pid'])
     
@@ -65,15 +84,22 @@ def get_score(df_true, df_submission, tasks=['task1', 'task2', 'task3']):
     df_submission = df_submission.sort_values('pid')
     df_true = df_true.sort_values('pid')
     
+    for pid in df_true['pid'].values:
+        if sum(df_submission['pid'] == pid) == 0:
+            print(pid, 'is not in df_submission!')
+    
     task_score = np.array([np.nan, np.nan, np.nan])
     
     for task in tasks:
         if task == 'task1':
             task_score[0] = np.mean([metrics.roc_auc_score(df_true[entry], df_submission[entry]) for entry in TESTS])
+            
         elif task == 'task2':
             task_score[1]  = metrics.roc_auc_score(df_true['LABEL_Sepsis'], df_submission['LABEL_Sepsis'])
         elif task == 'task3':
             task_score[2]  = np.mean([0.5 + 0.5 * np.maximum(0, metrics.r2_score(df_true[entry], df_submission[entry])) for entry in VITALS])
+        else:
+            print('task is not in get_score')
     
     score = np.nanmean([task_score])
     
