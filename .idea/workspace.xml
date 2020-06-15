@@ -27,7 +27,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/test_python.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunManager" selected="Python.main">
@@ -45,7 +45,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="" />
+      <option name="PARAMETERS" value="--retrain_model" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -75,6 +75,10 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.test_python" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
@@ -97,6 +101,8 @@
       <workItem from="1587571838988" duration="1626000" />
       <workItem from="1588332989612" duration="4700000" />
       <workItem from="1588686269017" duration="16720000" />
+      <workItem from="1590132760397" duration="650000" />
+      <workItem from="1592240026229" duration="8852000" />
     </task>
     <servers />
   </component>
@@ -104,10 +110,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="734" y="358" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587571900118">
+    <state x="734" y="358" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592252396025">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="734" y="358" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1587571900118" />
+    <state x="734" y="358" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1592252396025" />
     <state x="408" y="453" key="#xdebugger.XInspectDialog" timestamp="1587388609937">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -116,30 +122,30 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1035" y="408" key="#xdebugger.evaluate/0.0.2560.1400@0.0.2560.1400" timestamp="1587572257626" />
-    <state x="1060" y="458" key="FileChooserDialogImpl" timestamp="1587571885831">
+    <state x="1060" y="458" key="FileChooserDialogImpl" timestamp="1590135026258">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1060" y="458" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1587571885831" />
-    <state width="2517" height="397" key="GridCell.Tab.0.bottom" timestamp="1588707786816">
+    <state x="1060" y="458" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1590135026258" />
+    <state width="2517" height="397" key="GridCell.Tab.0.bottom" timestamp="1592252553354">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1877" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588426845317" />
-    <state width="2517" height="397" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1588707786816" />
-    <state width="2517" height="397" key="GridCell.Tab.0.center" timestamp="1588707786810">
+    <state width="2517" height="397" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1592252553354" />
+    <state width="2517" height="397" key="GridCell.Tab.0.center" timestamp="1592252553354">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1877" height="280" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588426845317" />
-    <state width="2517" height="397" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1588707786810" />
-    <state width="2517" height="397" key="GridCell.Tab.0.left" timestamp="1588707786809">
+    <state width="2517" height="397" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1592252553354" />
+    <state width="2517" height="397" key="GridCell.Tab.0.left" timestamp="1592252553354">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1877" height="280" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588426845317" />
-    <state width="2517" height="397" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1588707786809" />
-    <state width="2517" height="397" key="GridCell.Tab.0.right" timestamp="1588707786810">
+    <state width="2517" height="397" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1592252553354" />
+    <state width="2517" height="397" key="GridCell.Tab.0.right" timestamp="1592252553354">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1877" height="280" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588426845317" />
-    <state width="2517" height="397" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1588707786810" />
+    <state width="2517" height="397" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1592252553354" />
     <state width="2517" height="492" key="GridCell.Tab.1.bottom" timestamp="1588060515940">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -160,6 +166,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1288" height="708" key="XDebugger.FullValuePopup/0.0.2560.1400@0.0.2560.1400" timestamp="1587572256622" />
+    <state x="987" y="334" width="586" height="732" key="find.popup" timestamp="1592248935946">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="987" y="334" width="586" height="732" key="find.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1592248935946" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -180,6 +190,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/iml_task_2$test_python.coverage" NAME="test_python Coverage Results" MODIFIED="1588334234820" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
-    <SUITE FILE_PATH="coverage/iml_task_2$main.coverage" NAME="main Coverage Results" MODIFIED="1588707719686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/iml_task_2$main.coverage" NAME="main Coverage Results" MODIFIED="1592252424494" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
