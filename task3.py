@@ -28,54 +28,6 @@ def task3_train():
 
     pids_train, pids_val = train_test_split(all_pids, test_size = 0.1)
 
-
-    # In[3]:
-
-
-    # def getPatientData(trainingData, pids, patients=0, mode='pid'):
-    #     if mode == 'number':
-    #         pids = all_pids[:patients]
-    #     if len(pids) == 0:
-    #         return trainingData
-    #     #pids = np.array(pids).astype(np.float)
-    #     patients = [trainingData.iloc[idx] for idx in range(0, len(trainingData)) if trainingData['pid'][idx] in pids]
-    #     #patientTrainingDataIndex = [trainingData.iloc[idx] for idx, col in enumerate(trainingData) if trainingData['pid'][idx] in pids]
-    #     return pd.DataFrame(patients)
-
-    # def partitionData(trainingDataPids, trainingPartition=80):
-    #     validationPartition = 100 - trainingPartition
-    #     countTraining = int((trainingPartition/100)*len(trainingDataPids))
-    #     training = trainingDataPids[:countTraining]
-    #     validation = trainingDataPids[countTraining:]
-    #     print('')
-    #     print('Training size: ' + str(countTraining))
-    #     print('Validation size: ' + str(len(validation)))
-    #     return training, validation
-
-    # def populateData(X,Y):
-    #     Z = pd.merge(X, Y, on='pid')
-    #     YData = Z[Y.columns].iloc[:,1:]
-    #     XData = Z[X.columns].iloc[:,1:]
-    #     return XData, YData
-    # import sklearn.metrics as metrics
-
-    # TESTS = ['LABEL_BaseExcess', 'LABEL_Fibrinogen', 'LABEL_AST', 'LABEL_Alkalinephos', 'LABEL_Bilirubin_total',
-    #          'LABEL_Lactate', 'LABEL_TroponinI', 'LABEL_SaO2',
-    #          'LABEL_Bilirubin_direct', 'LABEL_EtCO2']
-
-    # VITALS = ['LABEL_RRate', 'LABEL_ABPm', 'LABEL_SpO2', 'LABEL_Heartrate']
-
-    # #def get_score(df_true, df_submission):
-    #     df_submission = df_submission.sort_values('pid')
-    #     df_true = df_true.sort_values('pid')
-
-    #     #task1 = np.mean([metrics.roc_auc_score(df_true[entry], df_submission[entry]) for entry in TESTS])
-    #     #task2 = metrics.roc_auc_score(df_true['LABEL_Sepsis'], df_submission['LABEL_Sepsis'])
-    #     task3 = np.mean([0.5 + 0.5 * np.maximum(0, metrics.r2_score(df_true[entry], df_submission[entry])) for entry in VITALS])
-    #     #score = np.mean([task1, task2, task3])
-    #     return task3
-
-
     # In[4]:
 
 
