@@ -1,6 +1,7 @@
 To make new predictions for grading follow the steps below:
 1. replace the file test_features.csv with the new test_features.csv
-2. a) run the prediction with the command: python3 main.py (recommended)
+2. a) run the prediction with the command: python3 main.py (recommended) 
+      --> to be able to run it with the pretrained model you have to get the models from here: https://polybox.ethz.ch/index.php/s/TSBmnOnw3BcsAda
    b) run the prediction with the command: python3 main.py --retrain_model
       --> this will retrain the models for the prediction from scratch
 3. when finished the predictions are stored in "submission.csv" and "submission.zip"
